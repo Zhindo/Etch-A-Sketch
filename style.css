@@ -1,0 +1,21 @@
+#container {
+    height: 470px;
+    max-width: 470px;
+    border: 1px solid black;
+    margin: auto;
+    width: 50%;
+    padding: 1px;
+}
+
+
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#grid {
+    height: 27px;
+    width: 27px;
+}
+
