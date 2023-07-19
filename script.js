@@ -1,16 +1,14 @@
 const container = document.querySelector('#box');
 
-const div = document.createElement('div');
-
-
 
 
 function createDiv(num) {
     for (let i = 0; i < num; i++)
     {
         const div = document.createElement('div');
-        div.setAttribute('id', 'grid');
-        div.style.border = ".5px solid black";
+        div.setAttribute('class', 'plain');
+        div.setAttribute('class', 'grid');
+        div.style.border = ".5px solid transparent";
         container.appendChild(div);
     }
 }
@@ -18,10 +16,25 @@ function createDiv(num) {
 
 createDiv(256);
 
-const grid = document.querySelectorAll("[id='grid']");
+let grid = document.querySelectorAll('.grid');
 
-document.getElementById('grid').addEventListener('mouseover', changeColor);
 
-function changeColor() {
-    frid.style.backgroundColor = 'black';
-}
+
+grid.forEach(element => {
+    
+    element.addEventListener('mouseover', function() {
+        element.classList.add('changeColor');
+    });
+}); 
+
+/*
+var greetings = "Hello";
+
+for (i of grid) {
+
+    i.addEventListener('mouseover', function() {
+        i.classList.add('changeColor');
+    });
+}   
+
+*/
