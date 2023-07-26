@@ -1,32 +1,23 @@
-#container {
-    height: 470px;
-    max-width: 470px;
-    border: 1px solid black;
-    margin: auto;
-    width: 50%;
-    padding: 0px;
+#title {
+    display: grid;
+    place-items: center;
 }
 
+#screen {
+    display: grid;
+    place-content: center;
+}
 
-#box {
-    display: flex;
-    flex-wrap: wrap;
+.container {
+    border: .1px solid black;
+    height: 500px;
+    width: 500px;
+    display: grid;
     justify-content: center;
-}
-
-.grid {
-    height: 27px;
-    width: 27px;
+    
 }
 
 .changeColor {
     background-color: black;
 }
 
-#grid:hover {
-    background-color: black;
-}
-
-#grid {
-    background-color: aliceblue;
-}

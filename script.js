@@ -1,40 +1,60 @@
-const container = document.querySelector('#box');
+const btn = document.getElementById('submit');
 
+btn.addEventListener('click', events => {
+    
+    const size = document.getElementById('size');
+    createGrids(size.value)
+})
 
+function createGrids(size) {
 
-function createDiv(num) {
-    for (let i = 0; i < num; i++)
-    {
-        const div = document.createElement('div');
-        div.setAttribute('class', 'plain');
-        div.setAttribute('class', 'grid');
-        div.style.border = ".5px solid transparent";
-        container.appendChild(div);
+   
+
+    let container = document.querySelector('.container');
+
+    let grids = container.querySelectorAll('div');
+    grids.forEach((div) => div.remove());
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size * size; i++){
+        const grid = document.createElement('div');
+        grid.style.border = '.1px solid rgb(57, 57, 57)'
+        grid.setAttribute('class', 'plain');
+        container.appendChild(grid);
     }
+    changeColor();
+
+}
+
+function changeColor() {
+    const grid = document.querySelectorAll('.plain')
+    const eraser = document.getElementById('erase');
+    
+    grid.forEach(element => {
+        element.addEventListener('mouseover', function() {
+            element.classList.add('changeColor');
+        }
+
+        
+    )});
+
+   
+
 }
 
 
-createDiv(256);
-
-let grid = document.querySelectorAll('.grid');
-
-
-
-grid.forEach(element => {
+function resetSketch() {
+    const reset = document.getElementById('reset');
+    const size = document.getElementById('size');
     
-    element.addEventListener('mouseover', function() {
-        element.classList.add('changeColor');
-    });
-}); 
+    reset.addEventListener('click', events => {
+    
+        const size = document.getElementById('size');
+        createGrids(size.value)
+    })
+}
 
-/*
-var greetings = "Hello";
-
-for (i of grid) {
-
-    i.addEventListener('mouseover', function() {
-        i.classList.add('changeColor');
-    });
-}   
-
-*/
+createGrids(16);
+changeColor();
+resetSketch();
